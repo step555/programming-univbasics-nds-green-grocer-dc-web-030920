@@ -57,6 +57,7 @@ def consolidate_cart(cart)
     #     :count => 1
     #   }
     if new_cart_item.include? :count
+      binding.pry
       new_cart_item[:count] += 1
     else
       new_cart_item = {  
