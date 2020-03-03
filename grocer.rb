@@ -56,7 +56,15 @@ def consolidate_cart(cart)
     #     :clearance => item_details[:clearance],
     #     :count => 1
     #   }
-    if new_cart_item.include?
+    if new_cart_item.include? :count
+      new_cart_item[:count] += 1
+    else
+      new_cart_item = {  
+        :item => item_details[:item],
+        :price => item_details[:price],
+        :clearance => item_details[:clearance],
+        :count => 1
+      }
       new_cart << new_cart_item
     end
     counter += 1
