@@ -46,7 +46,7 @@ def consolidate_cart(cart)
     new_cart_item = cart[counter][:item]
     if new_cart_item != nil
       # item_details[:count] = 1
-      item_details[:count] += 1
+      new_cart_item[:count] += 1
     binding.pry
       new_cart_item = item_details[:count]
     else
