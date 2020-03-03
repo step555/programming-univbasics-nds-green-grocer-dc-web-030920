@@ -56,7 +56,7 @@ def consolidate_cart(cart)
     #     :clearance => item_details[:clearance],
     #     :count => 1
     #   }
-    if new_cart_item.include? :count
+    if new_cart_item.has_key? :count
       new_cart_item[:count] += 1
     else
       new_cart_item = {  
