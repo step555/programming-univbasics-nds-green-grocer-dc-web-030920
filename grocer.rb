@@ -48,6 +48,7 @@ def consolidate_cart(cart)
       # item_details[:count] += 1 nd
       cart[counter][:count] += 1
       new_cart << new_cart_item
+      binding.pry
     else
       new_cart_item = {  
         :item => item_details[:item],
@@ -55,7 +56,6 @@ def consolidate_cart(cart)
         :clearance => item_details[:clearance],
         :count => 1
       }
-      binding.pry
       new_cart << new_cart_item
       # puts new_cart_item = cart[counter]
     end
