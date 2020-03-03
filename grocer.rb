@@ -19,30 +19,29 @@ def find_item_by_name_in_collection(name, collection)
   # nil
 end
 
-def consolidate_cart(cart)
-  new_cart = []
-  index = 0
-  while index < cart.length
-    new_cart_item = find_item_by_name_in_collection(cart[index][:item], new_cart)
-      binding.pry
-    if new_cart_item != nil
-      new_cart_item[:count] += 1
-    else
-      new_cart_item = {
-        :item => cart[index][:item],
-        :price => cart[index][:price],
-        :clearance => cart[index][:clearance],
-        :count => 1
-      }
-      new_cart << new_cart_item
-    end
-    index += 1
-  # binding.pry
-  end
-  new_cart
+# def consolidate_cart(cart)
+#   new_cart = []
+#   index = 0
+#   while index < cart.length
+#     new_cart_item = find_item_by_name_in_collection(cart[index][:item], new_cart)
+#       binding.pry
+#     if new_cart_item != nil
+#       new_cart_item[:count] += 1
+#     else
+#       new_cart_item = {
+#         :item => cart[index][:item],
+#         :price => cart[index][:price],
+#         :clearance => cart[index][:clearance],
+#         :count => 1
+#       }
+#       new_cart << new_cart_item
+#     end
+#     index += 1
+#   # binding.pry
+#   end
+#   new_cart
   # new_cart = []
   # cart.each do |item_details|
-  #   item_details.each do |key, value|
   #     new_cart_item = find_item_by_name_in_collection(cart[key][value], new_cart)
   #   binding.pry
 #     if new_cart_item != nil
