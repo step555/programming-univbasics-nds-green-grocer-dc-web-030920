@@ -43,7 +43,7 @@ def consolidate_cart(cart)
   new_cart = []
   cart.each do |item_details|
     binding.pry
-    new_cart_item = find_item_by_name_in_collection(cart[item_details][:item], new_cart)
+    new_cart_item = find_item_by_name_in_collection(item_details, new_cart)
     if cart[item_details] != nil
       new_cart_item[:count] += 1
     else
