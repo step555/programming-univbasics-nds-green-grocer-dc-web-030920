@@ -57,8 +57,6 @@ def consolidate_cart(cart)
   #   end
   # end
   # new_cart
-  
-  def consolidate_cart(cart) 
   new_cart = {} 
   cart.each do |items_array| 
     items_array.each do |item, attribute_hash| 
@@ -68,7 +66,7 @@ def consolidate_cart(cart)
   end 
 end 
 new_cart 
-end
+
 end
 
 # def apply_coupons(cart, coupons)
