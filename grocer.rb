@@ -41,6 +41,7 @@ def consolidate_cart(cart)
 #   end
 #   new_cart
   new_cart = []
+  counter = 0
   cart.each do |item_details|
     new_cart_item = find_item_by_name_in_collection(cart[counter], new_cart)
     if new_cart_item != nil
