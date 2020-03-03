@@ -40,7 +40,7 @@ def consolidate_cart(cart)
   # # binding.pry
   # end
   # new_cart
- 	  updated_cart = {}
+ 	  updated_cart = []
   cart.each do |item|
     item.each do |k, v|
       if !updated_cart[k]
