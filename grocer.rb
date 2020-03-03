@@ -20,18 +20,43 @@ def find_item_by_name_in_collection(name, collection)
 end
 
 def consolidate_cart(cart)
-	  updated_cart = {}
-  cart.each do |item|
-    item.each do |k, v|
-      if !updated_cart[k]
-        updated_cart[k] = v
-        updated_cart[k][:count] = 1
-      else
-        updated_cart[k][:count] += 1
-      end
+#   new_cart = []
+#   index = 0
+#   while index < cart.length
+#     new_cart_item = find_item_by_name_in_collection(cart[index][:item], new_cart)
+#       binding.pry
+#     if new_cart_item != nil
+#       new_cart_item[:count] += 1
+#     else
+#       new_cart_item = {
+#         :item => cart[index][:item],
+#         :price => cart[index][:price],
+#         :clearance => cart[index][:clearance],
+#         :count => 1
+#       }
+#       new_cart << new_cart_item
+#     end
+#     index += 1
+#   # binding.pry
+#   end
+#   new_cart
+  new_cart = []
+  cart.each do |item_details|
+    new_cart_item = find_item_by_name_in_collection(cart[item_details], new_cart)
+    binding.pry
+    if cart[item_details] != nil
+      new_cart_item[:count] += 1
+    else
+      new_cart_item = {  
+        :item => item_details[:item],
+        :price => item_details[:price],
+        :clearance => item_details[:clearance],
+        :count => 1
+      }
+      new_cart << new_cart_item
     end
   end
-  updated_cart
+  new_cart
 end
 
 # def apply_coupons(cart, coupons)
