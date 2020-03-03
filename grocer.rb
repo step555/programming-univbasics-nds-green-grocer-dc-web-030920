@@ -90,62 +90,62 @@ end
 #   cart
 # end
 
-def apply_coupons(cart, coupons)
-  coupons.each do |coupon|
-    item_info = find_item_by_name_in_collection(coupon[:item], cart)
-	  item_w_coupon = find_item_by_name_in_collection("#{coupon[:item]} W/COUPON", cart) 
-    if item_w_coupon and item_info[:count] >= coupon[:num]
-	    item_w_coupon[:count] += coupon[:num]
-	    item_info[:count] -= coupon[:num]
-	  elsif item_info and item_info[:count] >= coupon[:num]
-      cart << {
-        :item => coupon[:item] + " W/COUPON",
-        :price => (coupon[:cost]/coupon[:num]),
-        :clearance => item_info[:clearance],
-        :count => coupon[:num]
-      }
-      # binding.pry
-      item_info[:count] -= coupon[:num]
-    end #if
-  end #each
-  cart
-end #method apply_coupons
+# def apply_coupons(cart, coupons)
+#   coupons.each do |coupon|
+#     item_info = find_item_by_name_in_collection(coupon[:item], cart)
+# 	  item_w_coupon = find_item_by_name_in_collection("#{coupon[:item]} W/COUPON", cart) 
+#     if item_w_coupon and item_info[:count] >= coupon[:num]
+# 	    item_w_coupon[:count] += coupon[:num]
+# 	    item_info[:count] -= coupon[:num]
+# 	  elsif item_info and item_info[:count] >= coupon[:num]
+#       cart << {
+#         :item => coupon[:item] + " W/COUPON",
+#         :price => (coupon[:cost]/coupon[:num]),
+#         :clearance => item_info[:clearance],
+#         :count => coupon[:num]
+#       }
+#       # binding.pry
+#       item_info[:count] -= coupon[:num]
+#     end #if
+#   end #each
+#   cart
+# end #method apply_coupons
 
-def apply_clearance(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
-  cart.each do |item|
-    if item[:clearance]
-      item[:price] *= 0.80
-    end
-  end
-  cart
-end
+# def apply_clearance(cart)
+#   # Consult README for inputs and outputs
+#   #
+#   # REMEMBER: This method **should** update cart
+#   cart.each do |item|
+#     if item[:clearance]
+#       item[:price] *= 0.80
+#     end
+#   end
+#   cart
+# end
 
-def checkout(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # This method should call
-  # * consolidate_cart
-  # * apply_coupons
-  # * apply_clearance
-  #
-  # BEFORE it begins the work of calculating the total (or else you might have
-  # some irritated customers
-  consolidated_cart = consolidate_cart(cart)
-  applied_coupons = apply_coupons(consolidated_cart, coupons)
-  applied_clearance = apply_clearance(applied_coupons)
-  total = 0
-  counter = 0
-  while counter < applied_clearance.length do
-    total += applied_clearance[counter][:price] * applied_clearance[counter][:count]
-    counter += 1
-  end
-  # binding.pry
-  if total > 100
-    total *= 0.90
-  end
-    # binding.pry
-  total.round(3)
-end
+# def checkout(cart, coupons)
+#   # Consult README for inputs and outputs
+#   #
+#   # This method should call
+#   # * consolidate_cart
+#   # * apply_coupons
+#   # * apply_clearance
+#   #
+#   # BEFORE it begins the work of calculating the total (or else you might have
+#   # some irritated customers
+#   consolidated_cart = consolidate_cart(cart)
+#   applied_coupons = apply_coupons(consolidated_cart, coupons)
+#   applied_clearance = apply_clearance(applied_coupons)
+#   total = 0
+#   counter = 0
+#   while counter < applied_clearance.length do
+#     total += applied_clearance[counter][:price] * applied_clearance[counter][:count]
+#     counter += 1
+#   end
+#   # binding.pry
+#   if total > 100
+#     total *= 0.90
+#   end
+#     # binding.pry
+#   total.round(3)
+# end
