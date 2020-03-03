@@ -41,7 +41,7 @@ def consolidate_cart(cart)
 #   end
 #   new_cart
   new_cart = []
-  cart.each do |item_details|
+  cart.map do |item_details|
     new_cart_item = find_item_by_name_in_collection(cart[item_details][value], new_cart)
     binding.pry
   #   if new_cart_item != nil
