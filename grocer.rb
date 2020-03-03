@@ -45,7 +45,7 @@ def consolidate_cart(cart)
   cart.each do |item_details|
     new_cart_item = cart[counter][:item]
     # if new_cart_item != nil
-    if new_cart_item[:count]
+    if new_cart_item[:count] == nil
     binding.pry
       new_cart_item[:count] += 1
       new_cart_item = item_details[:count]
