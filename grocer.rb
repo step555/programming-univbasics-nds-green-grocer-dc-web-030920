@@ -20,45 +20,45 @@ def find_item_by_name_in_collection(name, collection)
 end
 
 def consolidate_cart(cart)
-#   new_cart = []
-#   index = 0
-#   while index < cart.length
-#     new_cart_item = find_item_by_name_in_collection(cart[index][:item], new_cart)
-#       binding.pry
-#     if new_cart_item != nil
-#       new_cart_item[:count] += 1
-#     else
-#       new_cart_item = {
-#         :item => cart[index][:item],
-#         :price => cart[index][:price],
-#         :clearance => cart[index][:clearance],
-#         :count => 1
-#       }
-#       new_cart << new_cart_item
-#     end
-#     index += 1
-#   # binding.pry
-#   end
-#   new_cart
   new_cart = []
-  cart.each do |item_details|
-    new_cart_item = find_item_by_name_in_collection(item_details[:item], new_cart)
-    binding.pry
-    if item_details != nil
-      item_details[:count] = 1
-      item_details[:count] += 1
-      new_cart_item = item_details[:count]
+  index = 0
+  while index < cart.length
+    new_cart_item = find_item_by_name_in_collection(cart[index][:item], new_cart)
+      binding.pry
+    if new_cart_item != nil
+      new_cart_item[:count] += 1
     else
-      new_cart_item = {  
-        :item => item_details[:item],
-        :price => item_details[:price],
-        :clearance => item_details[:clearance],
+      new_cart_item = {
+        :item => cart[index][:item],
+        :price => cart[index][:price],
+        :clearance => cart[index][:clearance],
         :count => 1
       }
       new_cart << new_cart_item
     end
+    index += 1
+  # binding.pry
   end
   new_cart
+  # new_cart = []
+  # cart.each do |item_details|
+  #   new_cart_item = find_item_by_name_in_collection(item_details[:item], new_cart)
+  #   binding.pry
+  #   if item_details != nil
+  #     item_details[:count] = 1
+  #     item_details[:count] += 1
+  #     new_cart_item = item_details[:count]
+  #   else
+  #     new_cart_item = {  
+  #       :item => item_details[:item],
+  #       :price => item_details[:price],
+  #       :clearance => item_details[:clearance],
+  #       :count => 1
+  #     }
+  #     new_cart << new_cart_item
+  #   end
+  # end
+  # new_cart
 end
 
 # def apply_coupons(cart, coupons)
