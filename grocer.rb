@@ -24,7 +24,6 @@ def consolidate_cart(cart)
   # index = 0
   # while index < cart.length
   #   new_cart_item = find_item_by_name_in_collection(cart[index][:item], new_cart)
-      binding.pry
   #   if new_cart_item != nil
   #     new_cart_item[:count] += 1
   #   else
@@ -44,6 +43,7 @@ def consolidate_cart(cart)
   counter = 0
   cart.each do |item_details|
     new_cart_item = find_item_by_name_in_collection(cart[counter][:item], new_cart)
+      binding.pry
     if cart[counter].has_key?(:count)
       # cart[counter][:count]
       # item_details[:count] += 1 nd
