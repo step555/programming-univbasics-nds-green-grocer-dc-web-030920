@@ -53,8 +53,10 @@ def consolidate_cart(cart)
         :count => 1
       }
     binding.pry
+      new_cart << new_cart_item
     end
   end
+  new_cart
 end
 
 # def apply_coupons(cart, coupons)
